@@ -166,7 +166,7 @@ a.button_nav {
 	float: right;
 	cursor:pointer;
 	border-left: 1px solid #ccc;
-	background: url(../resources/images/general/salir.png) no-repeat center;
+	background: url(../resources/images/general/atras.png) no-repeat center;
 	background-size: 26px;
 	z-index: 9999;
 }

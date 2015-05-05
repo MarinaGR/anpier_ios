@@ -24,7 +24,7 @@ var FLAG_PREMIUMPLUS=2;
 function onBodyLoad()
 {	
     document.addEventListener("deviceready", onDeviceReady, false);
-	document.getElementById("boton_salir").addEventListener("click", onOutKeyDown, false);	
+	document.getElementById("boton_salir").addEventListener("click", onBackKeyDown, false);	
 	
 	var boton_menu=document.getElementById("boton_menu");
 	if(boton_menu!=null)
@@ -45,12 +45,6 @@ function onDeviceReady()
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	document.addEventListener("menubutton", onMenuKeyDown, false);
-	
-	if(device.platform!='android' && device.platform!='Android') 
-	{
-		$("#boton_salir").css("background", "url(./resources/images/general/atras.png) no-repeat center");
-		document.getElementById("boton_salir").addEventListener("click", onBackKeyDown, false);	
-	}
 	
 	/* *********************************************************************** */
 	/* Comentar desde INICIO TEST NOTIFICACIONES hasta FIN TEST NOTIFICACIONES */
