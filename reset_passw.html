@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ANPIER - Asociación Nacional de Productores de Energía Fotovoltaica</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<meta name="description" content="Asociación Nacional de Productores de Energía Fotovoltáica.">
+		<meta name="keywords" content="ANPIER , Asociación Nacional de Productores de Energía Fotovoltaica, noticias, circulares">  
+		<meta name="cache-control" content="no-cache">
+		<meta name="expires" content="0">
+		<link rel="stylesheet" href="./css/jquery-ui.css">
+		<link href="./css/estilos.css" rel="stylesheet" type="text/css">	
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery_ui.js"></script>
+		<script src="./js/md5.js"></script>
+		<script src="./js/funciones.js"></script>
+		<script src="./cordova.js"></script>
+		<script>
+			var user_session=getLocalStorage("user_session"); 
+			if(typeof user_session != "undefined" && user_session!=null && user_session!="")	
+				window.location.href='menu.html';
+		</script>
+		
+	</head>
+
+	<body onload="onBodyLoad()">
+	
+		<div id="cortina"> </div>
+
+		<div class="contenedor">
+			<div class="header_01">
+				<img src="./resources/images/general/anpier_circulo.png" alt="anpier" width="60" style="vertical-align: middle" /> anpier
+				<div id="boton_salir"> </div>
+			</div>
+			
+			<div class="section_01">
+				
+				<h2><img src="./resources/images/general/llave.png" alt="anpier" width="40" style="vertical-align: baseline" /> <br>Introduzca su usuario</h2>
+				
+				<div class="clear_02"> </div>
+				<p>Se enviará un mensaje a su correo electrónico con la nueva contraseña</p>
+				
+				<form action="" method="post" id="form_recover">
+
+					<div class="label_01">Usuario</div>
+					<input class="input_01" id="user" name="user" type="email" />
+					<input class="button_01" name="entrar" type="button" value="Recuperar contraseña" onclick="reset_passw('form_recover');" />
+					
+					<div id="loading"> </div>
+				
+				</form>
+
+			</div>	
+			
+			<!--<div class="footer_01">
+				<img src="./resources/images/general/anpier.png" alt="anpier" width="400" />
+			</div>-->
+		</div>
+		
+	</body>
+</html>

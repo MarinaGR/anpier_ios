@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ANPIER - Asociación Nacional de Productores de Energía Fotovoltaica</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<meta name="description" content="Asociación Nacional de Productores de Energía Fotovoltáica.">
+		<meta name="keywords" content="ANPIER , Asociación Nacional de Productores de Energía Fotovoltaica, noticias, circulares">  
+		<meta name="cache-control" content="no-cache">
+		<meta name="expires" content="0">
+		<link rel="stylesheet" href="./css/jquery-ui.css">
+		<link href="./css/estilos.css" rel="stylesheet" type="text/css">	
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery_ui.js"></script>
+		<script src="./js/funciones.js"></script>
+		<script src="./cordova.js"></script>
+		
+		<script>
+			var user_session=getLocalStorage("user_session"); 
+			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
+				window.location.href='index.html';
+		</script>
+		
+	</head>
+
+	<body onload="onBodyLoad()">
+
+		<div id="cortina"> </div>
+		
+		<div class="contenedor">
+		
+			<!--Menú flotante-->
+			<div id="menu_flotante">  </div>
+			
+			<div class="header_01">
+				<img src="./resources/images/general/anpier_circulo.png" alt="anpier" width="60" style="vertical-align: middle" /> anpier
+				<div id="boton_salir"></div>
+				<div id="boton_menu"></div>
+			</div>
+			
+			<div class="title_01">
+				<img src="./resources/images/general/consultas.png" alt="noticias" width="20" style="vertical-align: text-top;">
+				Consultas
+			</div>
+			
+			<div class="section_01">
+			
+				<h1>Servicio de consultas jurídicas, fiscales, técnicas y administrativas</h1>
+
+				<p>Estamos volcados en dar soluciones a nuestros socios. Daremos respuesta a su consulta en un plazo de 48 horas.</p>
+							
+				<form action="" method="post" id="form_consulta">
+				
+					<input class="input_01" id="num_socio" name="num_socio" type="hidden" />
+					<script>
+						$("#num_socio").val(getLocalStorage("user_session"));
+					</script>
+					
+					<div class="label_01">Email*</div>
+					<input class="input_01" id="email" name="email" type="text" />
+					<script>
+						$("#email").val(getSessionStorage("mail_session"));
+					</script>
+
+					<div class="label_01">Tipo de consulta*</div>
+					<select id="tipo_consulta" name="tipo_consulta" class="select_01">
+						<option value="juridica">Jurídica</option>
+						<option value="fiscal">Fiscalidad</option>
+						<option value="tecnica">Técnicas</option>
+						<option value="administrativa">Administrativas</option>
+					</select>
+					 
+					<br/><br/>
+					<div class="label_01">Consulta*</div>
+					<textarea class="textarea_01" id="consulta" name="consulta"/></textarea>
+					
+					<br/>
+					
+					<input class="button_01" name="enviar" type="button" value="ENVIAR" onclick="send_query('form_consulta');" />
+					<p style="font-size:0.9em">(*) Todos los campos son obligatorios</p>
+					
+				</form>
+				
+				<br/>
+				<div class="campos_error" id="campos_error_form"><br/></div>
+				<div id="loading"> </div>
+
+			</div>	
+			
+			<!--<div class="footer_01">
+				<img src="./resources/images/general/anpier.png" alt="anpier" width="400" />
+			</div>-->
+		</div>
+		
+	</body>
+</html>

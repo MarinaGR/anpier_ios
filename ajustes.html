@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ANPIER - Asociación Nacional de Productores de Energía Fotovoltaica</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<meta name="description" content="Asociación Nacional de Productores de Energía Fotovoltáica.">
+		<meta name="keywords" content="ANPIER , Asociación Nacional de Productores de Energía Fotovoltaica, noticias, circulares">  
+		<meta name="cache-control" content="no-cache">
+		<meta name="expires" content="0">
+		<link rel="stylesheet" href="./css/jquery-ui.css">
+		<link href="./css/estilos.css" rel="stylesheet" type="text/css">	
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery_ui.js"></script>
+		<script src="./js/md5.js"></script>
+		<script src="./js/funciones.js"></script>
+		<script src="./cordova.js"></script>
+		
+		<script>
+			var user_session=getLocalStorage("user_session"); 
+			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
+				window.location.href='index.html';
+		
+			document.addEventListener("deviceready", function()
+			{
+				var opcion_notif=getLocalStorage("notificacion"); 
+				if(typeof opcion_notif == "undefined"  || opcion_notif==null)	
+				{
+					opcion_notif="si";
+					setLocalStorage("notificacion",opcion_notif);
+					$("#notificaciones").val(opcion_notif);
+				}
+				switch(opcion_notif)
+				{
+					default:
+					case "si": 	$('.switch .disable').removeClass('selected');
+								$('.switch .enable').addClass('selected');
+								$("#notificaciones").val("si");
+								break;
+								
+					case "no":  $('.switch .enable').removeClass('selected');
+								$('.switch .disable').addClass('selected');
+								$("#notificaciones").val("no");
+								break;
+				}		
+				
+			});
+
+			function activar_notif(actual)
+			{
+				$('.switch .disable').removeClass('selected');
+				$(actual).addClass('selected');
+				config_notifications('si');
+			}
+			function desactivar_notif(actual)
+			{
+				$('.switch .enable').removeClass('selected');
+				$(actual).addClass('selected');
+				config_notifications('no');
+			}
+			
+			function show_tab(tab,id) {		
+				$('.iframes').hide();
+				$('#'+id).show();
+				$('.tabs').removeClass('active');
+				$(tab).addClass('active');
+			}
+			
+			function onBackKeyDown()
+			{
+				window.location.href="menu.html";	
+			}
+		</script>
+		
+	</head>
+
+	<body onload="onBodyLoad()">
+
+		<div id="cortina"> </div>
+		
+		<div class="contenedor">
+		
+			<!--Menú flotante-->
+			<div id="menu_flotante">  </div>
+			
+			<div class="header_01">
+				<img src="./resources/images/general/anpier_circulo.png" alt="anpier" width="60" style="vertical-align: middle" /> anpier
+				<div id="boton_salir"> </div>
+				<div id="boton_menu"> </div>
+			</div>
+			
+			<div class="title_01">
+				<img src="./resources/images/general/conf.png" alt="noticias" width="20" style="vertical-align: text-top;">
+				Ajustes
+			</div>
+			
+			<div class="section_01">
+				
+				<div id="contenido">
+				
+					<div class="saludo_usuario"> </div>
+					<script>
+						if(getLocalStorage("user_session")!="") {				 
+							$(".saludo_usuario").html("USUARIO<span>"+getLocalStorage("user_session")+"</span>"); 
+						}
+					</script>
+					
+					<div class="div_table">
+						<div class="tabs active" onclick="show_tab(this,'notif')">
+							Notificaciones
+						</div>
+
+						<div id="tab_passw"> </div>
+						<script>
+						if(getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) {				
+							$("#tab_passw").attr('class','tabs'); 
+							$("#tab_passw").attr('onclick','show_tab(this,"change_passw")'); 
+							$("#tab_passw").html('Contrase&ntilde;a'); 
+						
+						}
+						</script>
+						
+					</div>
+					
+					<div class="iframes" id="notif" style="width:100%;height:400px;display:block" >
+						<form id="formulario_notif"> 
+																				
+							<h3>Notificaciones</h3>
+							<p class="switch">								
+								<label class="enable" onclick="activar_notif(this)"><span>Activadas</span></label>
+								<label class="disable" onclick="desactivar_notif(this)"><span>Desactivadas</span></label>
+								<input type="checkbox" name="notificaciones" id="notificaciones" onchange="config_notifications('notificaciones')" style="display:none"/> 
+							</p>
+							
+						</form>
+					</div>
+					
+					<div class="iframes" id="change_passw" style="width:100%;height:400px;" >
+						<form id="formulario_passw">
+							<p><div class="label_01">Contraseña antigua*</div>
+								<input type="password" class="input_01" name="old_passw" id="old_passw" /></p>
+							<p><div class="label_01">Contraseña nueva*</div>
+								<input type="text" class="input_01" name="new_passw" id="new_passw" /></p>
+							<input type="button" name="Cambiar contraseña" value="Cambiar contraseña" class="button_01" onclick="change_passw('formulario_passw')"/>
+						</form>
+						
+						<div id="loading"> </div>
+						
+					</div>
+					
+					<script>
+					if(getLocalStorage("premium")==FLAG_NORMAL) {
+						$("#change_passw").html(''); 
+					}
+					</script>
+					
+				</div>
+				<div class="clear_01"> </div>
+
+			</div>	
+			
+			<!--<div class="footer_01">
+				<img src="./resources/images/general/anpier.png" alt="anpier" width="400" />
+			</div>-->
+		</div>
+		
+	</body>
+</html>

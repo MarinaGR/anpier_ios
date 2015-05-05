@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ANPIER - Asociación Nacional de Productores de Energía Fotovoltaica</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<meta name="description" content="Asociación Nacional de Productores de Energía Fotovoltáica.">
+		<meta name="keywords" content="ANPIER , Asociación Nacional de Productores de Energía Fotovoltaica, noticias, circulares">  
+		<meta name="cache-control" content="no-cache">
+		<meta name="expires" content="0">
+		<link rel="stylesheet" href="./css/jquery-ui.css">
+		<link href="./css/estilos.css" rel="stylesheet" type="text/css">	
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery_ui.js"></script>
+		<script src="http://openlayers.org/api/OpenLayers.js"></script>
+		<script src="./js/wv.date.timeline.js"></script>		
+		<script src="./js/funciones.js"></script>
+		<script src="./cordova.js"></script>
+		
+		<script src="./js/chart.js"></script>
+		
+		<script>
+			var user_session=getLocalStorage("user_session"); 
+			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
+				window.location.href='index.html';
+				
+			var myGrafica;
+			var ctx;
+			
+			var array_labels=new Array();
+			var array_data_dem=new Array();
+			var array_data_prev=new Array();
+			var array_data_prog=new Array();
+			
+			document.addEventListener("deviceready", function()   {
+			
+				//CARGA MAPA
+				setTimeout(function() {
+					show_weather();
+				}, 25000);
+				
+			});
+			
+			function show_weather()
+			{
+				//SATELITE
+				
+				var args = OpenLayers.Util.getParameters();
+				var layer_name = "rain";
+				var dt = "2015-01-01";
+				var lat = 40.416747;
+				var lon = -3.703377;
+				var zoom = 4;
+				var opacity = 0.8;
+
+				if (args.dt) {
+					dt = args.dt;
+				} else {
+					var today = new Date();
+					// Selected day to show on the map
+					var day = new Date(today.getTime() - 60*60*2*1000); //60*60*24*1000
+					dt = day.toISOString().split("T")[0];	
+				}
+
+				if (args.l) layer_name = args.l;
+				if (args.lat)   lat = args.lat;
+				if (args.lon)   lon = args.lon;
+				if (args.zoom)  zoom = args.zoom;
+				//if (args.opacity)   opacity = args.opacity;
+
+
+				var map = new OpenLayers.Map({
+					div: "horariosol",
+					projection: "EPSG:4326",
+					numZoomLevels: 9,
+					zoom: 2
+				});
+
+				var GIBS_WMTS_GEO_ENDPOINT = "http://map1.vis.earthdata.nasa.gov/wmts-geo/wmts.cgi";
+				var TILEMATRIXSET_GEO_250m = "EPSG4326_250m";
+				//var TILEMATRIXSET_GEO_250m = "EPSG900913_250m";
+				//var TILEMATRIXSET_GEO_2km  = "EPSG4326_2km";
+
+				// Create base layers
+				var layerModisTerraTrueColor = new OpenLayers.Layer.WMTS({
+					name: " NASA Terra ",
+					url: GIBS_WMTS_GEO_ENDPOINT,
+					layer: "MODIS_Terra_CorrectedReflectance_TrueColor",
+					matrixSet: TILEMATRIXSET_GEO_250m,
+					format: "image/jpeg",
+					style: "",
+					transitionEffect: "resize",
+					projection: "EPSG:4326",
+				//    numZoomLevels: 9,
+				//    maxResolution: 0.5625,
+					resolutions: [0.5625, 0.28125, 0.140625, 0.0703125, 0.03515625, 0.017578125, 0.0087890625, 0.00439453125, 0.002197265625], 
+					serverResolutions: [0.5625, 0.28125, 0.140625, 0.0703125, 0.03515625, 0.017578125, 0.0087890625, 0.00439453125, 0.002197265625],
+					'tileSize': new OpenLayers.Size(512, 512),
+					isBaseLayer: true
+				});
+
+				layerModisTerraTrueColor.mergeNewParams({time:dt});
+
+				// Add layers to the map
+				map.addLayers([layerModisTerraTrueColor]);
+					 
+				// Add layer switcher control
+				map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+				map.events.register("mousemove", map, function (e) {
+						var position = map.getLonLatFromViewPortPx(e.xy);
+						//console.log(position);
+						$("#mouseposition").html("Lat: " + Math.round(position.lat*100)/100 + " Lon: " + Math.round(position.lon*100)/100 +
+							' zoom: '+ map.getZoom());
+				});
+				 
+
+				// Set global view
+				var extent = "-146.0, -94.0, 146.0, 94.0";
+				var OLExtent = new OpenLayers.Bounds.fromString(extent, false).transform(
+						new OpenLayers.Projection("EPSG:4326"),
+						map.getProjectionObject());
+
+				//map.zoomToExtent(OLExtent, true);
+
+				var centre = new OpenLayers.LonLat(lon, lat);
+
+				map.setCenter( centre, zoom);
+
+			}
+			
+			function show_window()
+			{
+				if(device.platform!='android' && device.platform!='Android') 
+				{
+					window.open('https://demanda.ree.es/movil/peninsula/demanda/total','_system','location=yes');
+				}
+				else
+				{
+					window.open('https://demanda.ree.es/movil/peninsula/demanda/total','_blank','location=yes');
+				}
+			}
+			
+			function show_tab(tab,id) {		
+				$('.iframes').hide();
+				$('#'+id).show();
+				$('.tabs').removeClass('active');
+				$(tab).addClass('active');
+				
+				if(id=="horariosol")
+				{
+					show_weather();
+				}
+			}
+			
+			function onBackKeyDown()
+			{
+				window.location.href="menu.html";			
+			}
+			
+		</script>
+		
+		<style>
+		canvas {
+			max-width: 90% !important; 
+			width: 90%; 
+			/*height: 450px;*/
+			margin:auto;
+			background:#222;
+			padding:20px 5%;
+			height: auto !important;
+		}
+		</style>
+		
+	</head>
+
+	<body onload="onBodyLoad()">
+
+		<div id="cortina"> </div>
+		
+		<div class="contenedor">
+		
+			<!--Menú flotante-->
+			<div id="menu_flotante">  </div>
+			
+			<div class="header_01">
+				<img src="./resources/images/general/anpier_circulo.png" alt="anpier" width="60" style="vertical-align: middle" /> anpier
+				<div id="boton_salir"></div>
+				<div id="boton_menu"></div>
+			</div>
+			
+			<div class="title_01">
+				<img src="./resources/images/general/varios.png" alt="utilidades" width="20" style="vertical-align: text-top;">
+				Utilidades
+			</div>
+			
+			<div class="section_01">	
+				
+				<div id="contenido"> </div>
+				
+				<div class="div_table">
+					<div class="tabs active" onclick="show_tab(this,'omie')">
+						OMIE
+					</div>
+					
+					<div class="tabs" onclick="show_window();">
+						DEMANDA DE ENERGÍA
+					</div>
+					
+					<div class="tabs" onclick="show_tab(this,'horariosol')">
+						TIEMPO
+					</div>
+				</div>
+				
+				<iframe class="iframes" id="omie" src="http://www.omie.es/aplicaciones/resultados_mercado_moviles/index.jsp" width="100%" height="600" style="display:block" > </iframe>
+
+				<div class="iframes" id="demanda" style="width:100%;height:500px" >
+				</div>
+					
+				<div class="iframes" id="horariosol" style="min-width:250px;width:100%;height:500px;background: url(./resources/images/general/loading.gif) no-repeat center;" >						
+				</div>
+
+				<div class="clear_01"> </div>
+
+			</div>	
+			
+			<!--<div class="footer_01">
+				<img src="./resources/images/general/anpier.png" alt="anpier" width="400" />
+			</div>-->
+		</div>
+		
+	</body>
+</html>

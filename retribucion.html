@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ANPIER - Asociación Nacional de Productores de Energía Fotovoltaica</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<meta name="description" content="Asociación Nacional de Productores de Energía Fotovoltáica.">
+		<meta name="keywords" content="ANPIER , Asociación Nacional de Productores de Energía Fotovoltaica, noticias, circulares">  
+		<meta name="cache-control" content="no-cache">
+		<meta name="expires" content="0">
+		<link rel="stylesheet" href="./css/jquery-ui.css">
+		<link href="./css/estilos.css" rel="stylesheet" type="text/css">	
+		<script src="./js/jquery.js"></script>
+		<script src="./js/jquery_ui.js"></script>
+		<script src="./js/funciones.js"></script>
+		<script src="./cordova.js"></script>
+		
+		<script src="./js/chart.js"></script>
+		
+		<script>
+			var user_session=getLocalStorage("user_session"); 
+			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
+				window.location.href='index.html';
+				
+			var id=get_var_url("id");
+			var fecha=get_var_url("fecha");
+
+			document.addEventListener("deviceready", function()   {
+				
+				//Comprobamos la fecha, ¿ponemos un día menos?
+				var fecha_split=fecha.split("-");
+				
+				var mes=parseInt(fecha_split[1]); 
+				var anio=parseInt(fecha_split[0]);
+				
+				if(mes=="00")
+				{
+					mes="12"; 
+					anio=anio-1;
+				}
+	
+				fecha=anio+"-"+mes+"-1";
+				
+				ajax_recover_leco("retribucion", "/"+id+"/"+fecha, "contenido", "");			
+			
+			}, false);
+			
+			function volver(lugar) 
+			{
+				switch(lugar)
+				{
+					case "general": 
+					case "instalaciones": 	window.location.href="instalaciones.html";	
+											break;
+										  
+					case "lecturas": 	window.location.href="lecturas.html?id="+id+"&fecha="+fecha+"&tipo=mes";	
+										break;
+				}
+			}
+			function onBackKeyDown()
+			{
+				window.location.href="instalaciones.html";	
+			}
+		</script>
+		
+	</head>
+
+	<body onload="onBodyLoad()">
+
+		<div id="cortina"> </div>
+		
+		<div class="contenedor">
+		
+			<!--Menú flotante-->
+			<div id="menu_flotante">  </div>
+			
+			<div class="header_01">
+				<img src="./resources/images/general/anpier_circulo.png" alt="anpier" width="60" style="vertical-align: middle" /> anpier
+				<div id="boton_salir"></div>
+				<div id="boton_menu"></div>
+			</div>
+			
+			<div class="title_01">
+				<!--<img src="./resources/images/general/premium.png" alt="premium" width="20" style="vertical-align: text-top;">-->
+				Premium - Estimación retribución mensual
+			</div>
+			
+			<div class="section_01">
+			
+				<div id="contenido" class="article_01">
+					<p style="text-align: center"><img src="./resources/images/general/loading.gif"></p>
+				</div>
+				
+				<div class="clear_03"> </div>
+
+			</div>	
+			
+			<div class="clear_03"> </div>
+			
+			<div class="menu_footer">
+				<!--<img src="./resources/images/general/atras.png" height="18" alt="atras" style="margin-top:15px;" onclick="volver('general')" /> 
+				<div class="separador"> </div>-->
+				<img src="./resources/images/general/instalaciones_menu.png" height="40" alt="instalaciones" onclick="volver('instalaciones')" style="margin-top:3px;"  />
+				<div class="separador"> </div>
+				<img src="./resources/images/general/grafica_menu.png" height="35" alt="lecturas" onclick="volver('lecturas')" style="margin-top:5px;"  />
+				
+			</div>
+						
+			<!--<div class="footer_01">
+				<img src="./resources/images/general/anpier.png" alt="anpier" width="400" />
+			</div>-->
+		</div>
+		
+	</body>
+</html>
