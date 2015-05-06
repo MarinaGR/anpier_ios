@@ -38,35 +38,34 @@
 				var anio=parseInt(fecha_split[0]);
 				
 				//OJO PROBLEMAS EN IOS?
-				var total_dias_mes=Math.round(((new Date(anio, mes))-(new Date(anio, mes-1)))/86400000); 							
+				//var total_dias_mes=Math.round(((new Date(anio, mes))-(new Date(anio, mes-1)))/86400000); 							
 				
-				//var total_dias_mes=getLastDay(mes,anio);
+				var total_dias_mes=getLastDay(mes,anio);
 				
 				alert(total_dias_mes);
-				alert(mes);
-				alert(typeof mes);
+
 				
-				if(mes=="00")
+				if(mes==0)
 				{
-					mes="12"; 
+					mes=12; 
 					anio=anio-1;
 				}
-				if(mes=="13")
+				if(mes==13)
 				{
-					mes="01"; 
+					mes=1; 
 					anio=anio+1;
 				}
 								
-				if(dia=="00")
+				if(dia==0)
 				{
-					dia="01"; 
+					dia=1; 
 				}
 				if(parseInt(dia)>=total_dias_mes)
 				{
 					dia=total_dias_mes; 
 				}
 				
-				fecha=anio+"-"+mes+"-"+dia;
+				fecha=anio+"-"+addZero(mes)+"-"+addZero(dia);
 				
 				switch(tipo)
 				{
@@ -86,7 +85,7 @@
 					case "instalaciones": 	window.location.href="instalaciones.html";	
 											break;
 										  
-					case "retribucion": window.location.href="retribucion.html?id="+id+"&fecha="+fecha;	
+					case "retribucion":   window.location.href="retribucion.html?id="+id+"&fecha="+fecha;	
 										  break;
 								
 								
