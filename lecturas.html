@@ -38,9 +38,9 @@
 				var anio=parseInt(fecha_split[0]);
 				
 				//OJO PROBLEMAS EN IOS?
-				//var total_dias_mes=Math.round(((new Date(anio, mes))-(new Date(anio, mes-1)))/86400000); 							
+				var total_dias_mes=Math.round(((new Date(anio, mes))-(new Date(anio, mes-1)))/86400000); 							
 				
-				var total_dias_mes=getLastDay(mes,anio);
+				//var total_dias_mes=getLastDay(mes,anio);
 				
 				alert(total_dias_mes);
 				alert(mes);
