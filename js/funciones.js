@@ -24,7 +24,10 @@ var FLAG_PREMIUMPLUS=2;
 function onBodyLoad()
 {	
     document.addEventListener("deviceready", onDeviceReady, false);
-	document.getElementById("boton_salir").addEventListener("click", onBackKeyDown, false);	
+	
+	var boton_salir=document.getElementById("boton_salir");
+	if(boton_salir!=null)
+		boton_salir.addEventListener("click", onBackKeyDown, false);	
 	
 	var boton_menu=document.getElementById("boton_menu");
 	if(boton_menu!=null)
