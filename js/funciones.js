@@ -783,9 +783,29 @@ function get_user_data(mail, api_key) {
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
 		  
-						setLocalStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
-						setLocalStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
-						setLocalStorage("pie_instalaciones", respuesta2.pieInstalaciones);
+						setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
+						setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
+						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
+						var pie_instalaciones=getLocalStorage("pie_instalaciones"); 
+						
+						//var anuncio_demo=JSON.parse(getLocalStorage("anuncio_demo")); 
+						var anuncio_demo=respuesta2.Anuncio;
+						var muestra_anuncio_demo=anuncio_demo.mostrar;
+						setSessionStorage("muestra_anuncio_demo", muestra_anuncio_demo);
+						var title_anuncio_demo=anuncio_demo.titulo;
+						setSessionStorage("title_anuncio_demo", title_anuncio_demo);
+						var body_anuncio_demo=anuncio_demo.cuerpo;
+						setSessionStorage("body_anuncio_demo", body_anuncio_demo);
+						var txt_boton_anuncio=anuncio_demo.textoBoton;
+						setSessionStorage("txt_boton_anuncio", txt_boton_anuncio);
+						var url_boton_anuncio=anuncio_demo.urlBoton;
+						setSessionStorage("url_boton_anuncio", url_boton_anuncio);
+						
+						var boton_demo=respuesta2.botonDemo; 
+						var muestra_boton_demo=boton_demo.mostrar;
+						setSessionStorage("muestra_boton_demo", muestra_boton_demo);
+						var txt_boton_demo=boton_demo.texto;
+						setSessionStorage("txt_boton_demo", txt_boton_demo);
 
 						if(respuesta2.Premium==true)
 							setLocalStorage("premium", FLAG_PREMIUM);
@@ -795,8 +815,9 @@ function get_user_data(mail, api_key) {
 							setLocalStorage("premium", FLAG_NORMAL);
 							
 						alert("premium: "+getLocalStorage("premium"));
-						alert("anuncio_demo: "+getLocalStorage("anuncio_demo"));
-						alert("boton_demo: "+getLocalStorage("boton_demo"));
+						alert("muestra_anuncio_demo: "+muestra_anuncio_demo);
+						alert("title_anuncio_demo: "+title_anuncio_demo);
+						alert("body_anuncio_demo: "+getSessionStorage("body_anuncio_demo"));
 						alert("pie_instalaciones: "+getLocalStorage("pie_instalaciones"));
 						
 						window.location.href='menu.html';

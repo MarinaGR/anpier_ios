@@ -19,12 +19,7 @@
 		<script>
 			var user_session=getLocalStorage("user_session"); 
 			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
-				window.location.href='index.html';
-				
-			var boton_demo=JSON.parse(getLocalStorage("boton_demo")); 
-			var muestra_boton_demo=boton_demo.mostrar;
-			var txt_boton_demo=boton_demo.texto;
-			
+				window.location.href='index.html';			
 		</script>
 		
 	</head>
@@ -97,9 +92,9 @@
 					$('#premium').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />Instalaciones</div></a>');
 				}	
 				
-				if(getLocalStorage("premium")==FLAG_NORMAL && muestra_boton_demo==true) 
+				if(getLocalStorage("premium")==FLAG_NORMAL && getSessionStorage("muestra_boton_demo")==true) 
 				{
-					$('#premium').append('<a href="instalaciones.html"><div class="button_nav premium">'+txt_boton_demo+'</div></a>');
+					$('#premium').append('<a href="instalaciones.html"><div class="button_nav premium">'+getSessionStorage("txt_boton_demo")+'</div></a>');
 					
 					//$('#premium').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE<br>PREMIUM+</div></a>');
 				}

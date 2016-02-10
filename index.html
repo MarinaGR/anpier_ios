@@ -19,7 +19,10 @@
 		<script>
 			var user_session=getLocalStorage("user_session"); 
 			if(typeof user_session != "undefined" && user_session!=null && user_session!="")	
-				window.location.href='menu.html';
+			{
+				get_user_data(getLocalStorage("user_session"), getLocalStorage("api_key"));
+				//window.location.href='menu.html';
+			}
 		</script>
 		
 	</head>

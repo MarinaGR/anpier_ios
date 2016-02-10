@@ -22,23 +22,15 @@
 			var user_session=getLocalStorage("user_session"); 
 			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
 				window.location.href='index.html';
-				
-			var anuncio_demo=JSON.parse(getLocalStorage("anuncio_demo")); 
-			var pie_instalaciones=getLocalStorage("pie_instalaciones"); 
-			var muestra_anuncio_demo=anuncio_demo.mostrar;
-			var title_anuncio_demo=anuncio_demo.titulo;
-			var body_anuncio_demo=anuncio_demo.cuerpo;
-			var txt_boton_anuncio=anuncio_demo.textoBoton;
-			var url_boton_anuncio=anuncio_demo.urlBoton;
 			
 			document.addEventListener("deviceready", function()   {
 			
-				if(muestra_anuncio_demo==true)
+				if(getSessionStorage("muestra_anuncio_demo")==true)
 				{
-					$("#title_anuncio_demo").html(title_anuncio_demo);
-					$("#body_anuncio_demo").html(body_anuncio_demo);
-					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+url_boton_anuncio+'\')">'+txt_boton_anuncio+'</a>');
-					$("#pie_instalaciones").html(pie_instalaciones);
+					$("#title_anuncio_demo").html(getSessionStorage("title_anuncio_demo"));
+					$("#body_anuncio_demo").html(getSessionStorage("body_anuncio_demo"));
+					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\')">'+getSessionStorage("txt_boton_anuncio")+'</a>');
+					$("#pie_instalaciones").html(getSessionStorage("pie_instalaciones"));
 				}
 				
 				ajax_recover_leco("instalacion", "", "contenido", "", false);	
