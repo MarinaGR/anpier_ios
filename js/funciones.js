@@ -319,9 +319,41 @@ function registerOnServer(registrationId) {
 		
     });
 }
+
+function registerOnServerIOS(registrationId) {
+
+	var api_key=getLocalStorage("api-key");
+	var mail=getLocalStorage("user_session");
+
+    $.ajax({
+        type: "POST",
+        url: api_leco+"pushios/"+registrationId, 
+		headers: {
+				'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
+				'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
+			},
+		dataType: 'json',
+		crossDomain: true, 
+        success: function() {          	
+					setSessionStorage("regID", registrationId);					
+				},
+        error: function(jqXHR) {
+					if(jqXHR.status == 200) {
+						//$("body").append('<br>Listo para notificaciones');	
+
+						//notificar al usuario con un mensaje						
+						setSessionStorage("regID", registrationId);
+					}	
+					if(jqXHR.status == 500) {
+						$("body").append('<br>El dispositivo no se pudo registrar para recibir notificaciones.');
+					}	
+				}
+		
+    });
+}
 function tokenHandler (result) {
 	//$("body").append('<br>Listo para notificaciones');
-	registerOnServer(result);
+	registerOnServerIOS(result);
 }
 
 function successHandler (result) {
