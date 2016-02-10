@@ -707,8 +707,9 @@ function start_user_session(id_form) {
 								setLocalStorage("premium", FLAG_PREMIUMPLUS);
 							if(respuesta.Premium==false && respuesta.PremiumPlus==false)
 								setLocalStorage("premium", FLAG_NORMAL);
-								
-							window.location.href='menu.html';
+							
+							get_user_data();							
+							//window.location.href='menu.html';
 							
 					   },
 			  error: function fallo(jqXHR, textStatus, errorThrown) {
@@ -734,6 +735,42 @@ function start_user_session(id_form) {
 		$("#loading").hide();
 		
 	});
+}
+
+
+function get_user_data() {
+				
+	$.ajax({
+		  url: api_leco+"iniciotest",
+		  headers: {
+			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
+		  },
+		  type: 'GET',
+		  dataType: 'json',
+		  crossDomain: true, 
+		  success: function exito2(respuesta2) {
+		  
+						setLocalStorage("anuncio_demo", respuesta2.Anuncio);
+						setLocalStorage("boton_demo", respuesta2.botonDemo);
+						setLocalStorage("pie_instalaciones", respuesta2.pieInstalaciones);
+
+						if(respuesta2.Premium==true)
+							setLocalStorage("premium", FLAG_PREMIUM);
+						if(respuesta2.PremiumPlus==true)
+							setLocalStorage("premium", FLAG_PREMIUMPLUS);
+						if(respuesta2.Premium==false && respuesta2.PremiumPlus==false)
+							setLocalStorage("premium", FLAG_NORMAL);
+							
+						window.location.href='menu.html';
+						
+				   },
+		  error: function fallo(jqXHR, textStatus, errorThrown) {
+					//OJO: QUITAR ALERT
+					alert("Error init data demo");
+					return false;
+				 },
+		  async:false,
+		});
 }
 
 function send_query(id_form) {

@@ -20,6 +20,15 @@
 			var user_session=getLocalStorage("user_session"); 
 			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
 				window.location.href='index.html';
+				
+			var boton_demo=getLocalStorage("boton_demo"); 
+			var muestra_boton_demo=boton_demo.mostrar;
+			var txt_boton_demo=boton_demo.texto;
+			
+			$(document).ready(function() {
+				$('body').prepend(boton_demo);
+				$('body').prepend(muestra_boton_demo);
+			});
 		</script>
 		
 	</head>
@@ -90,9 +99,14 @@
 				if(getLocalStorage("premium")==FLAG_PREMIUM) 
 				{
 					$('#premium').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />Instalaciones</div></a>');
-
-					//$('#premium').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE PREMIUM+</div></a>');
 				}	
+				
+				if(getLocalStorage("premium")==FLAG_NORMAL && muestra_boton_demo==true) 
+				{
+					$('#premium').append('<a href="instalaciones.html"><div class="button_nav premium">'+txt_boton_demo+'</div></a>');
+					
+					//$('#premium').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE<br>PREMIUM+</div></a>');
+				}
 				</script>
 				
 				<span id="premiumplus"> </span>
@@ -102,11 +116,6 @@
 				{
 					$('#premiumplus').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />Instalaciones</div></a>');
 				}
-				/*if(getLocalStorage("premium")==FLAG_NORMAL) 
-				{
-					$('#premium').append('<a href="premium.html"><div class="button_nav premium">HAZTE<br>PREMIUM</div></a>');
-					$('#premium').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE<br>PREMIUM+</div></a>');
-				}*/
 				</script>
 				
 				<span id="ajustes"> </span>

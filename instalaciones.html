@@ -23,7 +23,22 @@
 			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
 				window.location.href='index.html';
 				
+			var anuncio_demo=getLocalStorage("anuncio_demo"); 
+			var muestra_anuncio_demo=anuncio_demo.mostrar;
+			var title_anuncio_demo=anuncio_demo.titulo;
+			var body_anuncio_demo=anuncio_demo.cuerpo;
+			var txt_boton_anuncio=anuncio_demo.textoBoton;
+			var url_boton_anuncio=anuncio_demo.urlBoton;
+			
 			document.addEventListener("deviceready", function()   {
+			
+				$("#title_anuncio_demo").html(title_anuncio_demo);
+				$("#body_anuncio_demo").html(body_anuncio_demo);
+				if(muestra_anuncio_demo==true)
+				{
+					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+url_boton_anuncio+'\')">'+txt_boton_anuncio+'</a>');
+				}
+				
 				ajax_recover_leco("instalacion", "", "contenido", "", false);			
 			}, false);
 			
@@ -57,6 +72,11 @@
 			
 			<div class="section_01">
 			
+				<h2 id="title_anuncio_demo"></h2>
+				<div id="title_anuncio_demo"></div>
+				<div id="body_anuncio_demo"></div>
+				<div id="boton_anuncio_demo"></div>
+				
 				<div id="contenido" class="article_01">
 					<p style="text-align: center"><img src="./resources/images/general/loading.gif"></p>
 				</div>
