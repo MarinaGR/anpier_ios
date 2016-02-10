@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap   = "http://phonegap.com/ns/1.0"
 		id          = "com.ziddea.anpier"
-		version     = "1.0.1" >
+		version     = "1.0.2" >
 		
 		<!-- v1.0.2 Corrección de bugs (ocultar información barra sistema ios, ocultar icono phonegap al inicio) -->
 		<!-- Pendiente para esta versión: Paginador en todas las secciones de contenidos, revisar circulares

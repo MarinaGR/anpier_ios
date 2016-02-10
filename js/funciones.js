@@ -794,6 +794,11 @@ function get_user_data(mail, api_key) {
 						if(respuesta2.Premium==false && respuesta2.PremiumPlus==false)
 							setLocalStorage("premium", FLAG_NORMAL);
 							
+						alert("premium: "+getLocalStorage("premium"));
+						alert("anuncio_demo: "+getLocalStorage("anuncio_demo"));
+						alert("boton_demo: "+getLocalStorage("boton_demo"));
+						alert("pie_instalaciones: "+getLocalStorage("pie_instalaciones"));
+						
 						window.location.href='menu.html';
 						
 				   },
