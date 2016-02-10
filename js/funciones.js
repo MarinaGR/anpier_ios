@@ -750,8 +750,8 @@ function get_user_data() {
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
 		  
-						setLocalStorage("anuncio_demo", respuesta2.Anuncio);
-						setLocalStorage("boton_demo", respuesta2.botonDemo);
+						setLocalStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
+						setLocalStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
 						setLocalStorage("pie_instalaciones", respuesta2.pieInstalaciones);
 
 						if(respuesta2.Premium==true)

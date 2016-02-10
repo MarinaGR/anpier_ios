@@ -23,7 +23,7 @@
 			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
 				window.location.href='index.html';
 				
-			var anuncio_demo=getLocalStorage("anuncio_demo"); 
+			var anuncio_demo=JSON.parse(getLocalStorage("anuncio_demo")); 
 			var pie_instalaciones=getLocalStorage("pie_instalaciones"); 
 			var muestra_anuncio_demo=anuncio_demo.mostrar;
 			var title_anuncio_demo=anuncio_demo.titulo;
