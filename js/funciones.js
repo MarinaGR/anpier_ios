@@ -741,7 +741,7 @@ function start_user_session(id_form) {
 function get_user_data() {
 				
 	$.ajax({
-		  url: api_leco+"iniciotest",
+		  url: api_leco+"inicio",
 		  headers: {
 			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
 		  },
