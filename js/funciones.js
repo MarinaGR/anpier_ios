@@ -2256,9 +2256,6 @@ function ajax_recover_leco(operation, values, container, type) {
 							if(fecha_calendario[2]>1)
 								cadena+="<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])-1)+"&tipo=dia' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='18' /></a>";
 							
-							alert(fecha_calendario[2]);
-							alert(getLastDay(parseInt(fecha_calendario[1]),fecha_calendario[0]));
-							
 							if(fecha_calendario[2]<getLastDay(parseInt(fecha_calendario[1]),fecha_calendario[0]))
 								cadena+="<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])+1)+"&tipo=dia' style='float:right'><img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='18' /></a>";
 							
