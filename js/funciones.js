@@ -2246,9 +2246,21 @@ function ajax_recover_leco(operation, values, container, type) {
 							cadena+='<div style="position:relative"><br>';
 							cadena+="<h3 style='text-align:center;'>"+fecha_calendario[2]+" de "+monthNames[parseInt(fecha_calendario[1])-1]+" de "+fecha_calendario[0]+"</h3>";
 							
-							cadena+="<div class='contenedor_flechas'><br>"+
-									"<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])-1)+"&tipo=dia' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='18' /></a>"+
-									"<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])+1)+"&tipo=dia' style='float:right'><img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='18' /></a><div class='clear_01'> </div></div>";
+							//Si es el primer día ocultamos fecha de día anterior
+							//Si es el último día del mes oculta la fecha de día siguiente
+							//cadena+="<div class='contenedor_flechas'><br>"+
+							//		"<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])-1)+"&tipo=dia' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='18' /></a>"+
+							//		"<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])+1)+"&tipo=dia' style='float:right'><img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='18' /></a><div class='clear_01'> </div></div>";
+									
+							cadena+="<div class='contenedor_flechas'><br>";
+							if(fecha_calendario[2]>1)
+								cadena+="<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])-1)+"&tipo=dia' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='18' /></a>";
+							
+							if(fecha_calendario[2]<getLastDay(parseInt(fecha_calendario[1])-1,fecha_calendario[0]))
+								cadena+="<a href='lecturas.html?id="+id_instalacion+"&fecha="+fecha_calendario[0]+"-"+addZero(parseInt(fecha_calendario[1]))+"-"+addZero(parseInt(fecha_calendario[2])+1)+"&tipo=dia' style='float:right'><img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='18' /></a>";
+							
+							cadena+="<div class='clear_01'> </div></div>";					
+							
 							
 							cadena+='<div class="clear_02"> </div>';
 							
@@ -2360,6 +2372,34 @@ function addZero(number) {
 		number="0"+number;
 	}
 	return number;
+}
+
+function getLastDay(month,year)
+{
+	switch(month)
+	{
+		case 1:
+		case 3:
+		case 5: 
+		case 7:
+		case 8:
+		case 10:
+		case 12: return 31;
+				 break;
+			
+		case 4:
+		case 6: 
+		case 9:
+		case 11: return 30;
+				 break;
+				 
+		case 2: if((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+					return 29;
+				else
+					return 28;
+				break;
+		
+	}
 }
 
 function get_var_url(variable){
