@@ -24,6 +24,7 @@
 				window.location.href='index.html';
 				
 			var anuncio_demo=getLocalStorage("anuncio_demo"); 
+			var pie_instalaciones=getLocalStorage("pie_instalaciones"); 
 			var muestra_anuncio_demo=anuncio_demo.mostrar;
 			var title_anuncio_demo=anuncio_demo.titulo;
 			var body_anuncio_demo=anuncio_demo.cuerpo;
@@ -32,11 +33,12 @@
 			
 			document.addEventListener("deviceready", function()   {
 			
-				$("#title_anuncio_demo").html(title_anuncio_demo);
-				$("#body_anuncio_demo").html(body_anuncio_demo);
 				if(muestra_anuncio_demo==true)
 				{
+					$("#title_anuncio_demo").html(title_anuncio_demo);
+					$("#body_anuncio_demo").html(body_anuncio_demo);
 					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+url_boton_anuncio+'\')">'+txt_boton_anuncio+'</a>');
+					$("#pie_instalaciones").html(pie_instalaciones);
 				}
 				
 				ajax_recover_leco("instalacion", "", "contenido", "", false);			
@@ -80,6 +82,10 @@
 				<div id="contenido" class="article_01">
 					<p style="text-align: center"><img src="./resources/images/general/loading.gif"></p>
 				</div>
+				
+				<div class="clear_03"> </div>
+				
+				<div id="pie_instalaciones"></div>
 				
 				<div class="clear_03"> </div>
 
