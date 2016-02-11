@@ -1,4 +1,5 @@
-var api_url='http://anpier.org/api.php';
+//var api_url='http://anpier.org/api.php';
+var api_url='http://hoopale.com/ANPIER_PRUEBAS/api.php';
 var api_leco='http://anpier.api.lecturacontador.com/api/';
 var extern_url='http://www.anpier.org/';
 var local_url='./resources/json/';
@@ -773,7 +774,7 @@ function start_user_session(id_form) {
 function get_user_data(mail, api_key) {
 					
 	$.ajax({
-		  url: api_leco+"inicio",
+		  url: api_leco+"iniciotest",
 		  headers: {
 			'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
 			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'

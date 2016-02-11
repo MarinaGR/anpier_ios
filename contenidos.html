@@ -25,7 +25,13 @@
 			{
 				var id=get_var_url("id");
 				var tipo=get_var_url("tipo");
-				ajax_recover_data(tipo, id, "contenido", false);
+				
+				var start=get_var_url("start");
+				var limit=get_var_url("limit");
+				
+				//ajax_recover_data(tipo, id, "contenido", false);
+				ajax_recover_data(tipo, "id="+id+"&start="+start+"&limit="+limit, "contenido", false);
+				
 			}, false);		
 
 			function onBackKeyDown()

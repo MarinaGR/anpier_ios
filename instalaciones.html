@@ -31,7 +31,7 @@
 				{
 					$("#title_anuncio_demo").html(getSessionStorage("title_anuncio_demo"));
 					$("#body_anuncio_demo").html(getSessionStorage("body_anuncio_demo"));
-					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\')">'+getSessionStorage("txt_boton_anuncio")+'</a>');
+					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+',  "_system", "location=yes"\')">'+getSessionStorage("txt_boton_anuncio")+'</a>');
 					$("#pie_instalaciones").html(getSessionStorage("pie_instalaciones"));
 				}
 				
@@ -70,6 +70,7 @@
 				<h2 id="title_anuncio_demo"></h2>
 				<div id="title_anuncio_demo"></div>
 				<div id="body_anuncio_demo"></div>
+				<div class="clear_02"> </div>
 				<div id="boton_anuncio_demo"></div>
 			</div>
 			

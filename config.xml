@@ -4,9 +4,8 @@
 		id          = "com.ziddea.anpier"
 		version     = "1.0.2" >
 		
-		<!-- v1.0.2 Corrección de bugs (ocultar información barra sistema ios, ocultar icono phonegap al inicio) -->
-		<!-- Pendiente para esta versión: Paginador en todas las secciones de contenidos, revisar circulares
-		recolocación de la barra de menú superior (botón volver, ocultar botón salir en todo) -->
+		<!-- v1.0.2 Corrección de bugs (ocultar información barra sistema ios, ocultar icono phonegap al inicio) cambiar ubicación iconos barra menú superior -->
+		<!-- Pendiente para esta versión: Paginador en todas las secciones de contenidos, revisar circulares -->
 
     <name>ANPIER</name>
 

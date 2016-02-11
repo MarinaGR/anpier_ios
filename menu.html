@@ -87,16 +87,11 @@
 				<div id="lite" class="barra_01"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
-				alert(getLocalStorage("premium"));
-				alert(FLAG_NORMAL);
-				alert(getSessionStorage("muestra_boton_demo"));
-				alert(getSessionStorage("txt_boton_demo"));
+				
+				alert("muestra boton: "+getSessionStorage("muestra_boton_demo"));
 				
 				if(getLocalStorage("premium")==FLAG_NORMAL && getSessionStorage("muestra_boton_demo")=='true') 
-				{
-				
-				alert("dentro lite");
-				
+				{				
 					$('#lite').append('<a href="instalaciones.html"><div class="button_nav2 premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+getSessionStorage("txt_boton_demo")+'</div></a>');
 					
 					//$('#lite').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE<br>PREMIUM+</div></a>');
