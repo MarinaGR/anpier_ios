@@ -786,7 +786,9 @@ function get_user_data(mail, api_key) {
 						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
 						alert(respuesta2.pieInstalaciones);
 						
-						alert("muestra_anuncio_demo: "+respuesta2.Anuncio.mostrar);
+						$("body").prepend(JSON.stringify(respuesta2.Anuncio));
+						var anuncio_demo=JSON.parse(respuesta2.Anuncio); 
+						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
 						
 						var boton_demo=respuesta2.botonDemo; 
 						var muestra_boton_demo=boton_demo.mostrar;
@@ -798,7 +800,7 @@ function get_user_data(mail, api_key) {
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
 						var pie_instalaciones=getSessionStorage("pie_instalaciones"); 
 						
-						
+						alert("txt_boton_demo: "+txt_boton_demo);
 						alert("title_anuncio_demo: "+anuncio_demo.titulo);
 						alert("body_anuncio_demo: "+anuncio_demo.cuerpo);
 						alert("pie_instalaciones: "+respuesta2.pieInstalaciones);

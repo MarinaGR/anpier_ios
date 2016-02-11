@@ -84,23 +84,27 @@
 				
 				<div class="clear_01"> </div>
 				
+				<div id="lite" class="barra_01"> </div>
+				<!-- Mostrar o no dependiendo del usuario -->
+				<script>
+				if(getLocalStorage("premium")==FLAG_NORMAL && getSessionStorage("muestra_boton_demo")=='true') 
+				{
+					$('#lite').append('<a href="instalaciones.html"><div class="button_nav2 premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+getSessionStorage("txt_boton_demo")+'</div></a>');
+					
+					//$('#lite').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE<br>PREMIUM+</div></a>');
+				}
+				</script>
+				
 				<div id="premium" class="barra_01"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
 				if(getLocalStorage("premium")==FLAG_PREMIUM) 
 				{
 					$('#premium').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />Instalaciones</div></a>');
-				}	
-				
-				if(getLocalStorage("premium")==FLAG_NORMAL && getSessionStorage("muestra_boton_demo")==true) 
-				{
-					$('#premium').append('<a href="instalaciones.html"><div class="button_nav premium">'+getSessionStorage("txt_boton_demo")+'</div></a>');
-					
-					//$('#premium').append('<a href="premiumplus.html"><div class="button_nav premiumplus">HAZTE<br>PREMIUM+</div></a>');
 				}
 				</script>
 				
-				<span id="premiumplus"> </span>
+				<div id="premiumplus"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
 				if(getLocalStorage("premium")==FLAG_PREMIUMPLUS) 

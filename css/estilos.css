@@ -87,6 +87,23 @@ a.button_nav {
 	font-family: 'Lato', Arial, sans-serif;
 
 }
+.button_nav2 {
+	float: left;
+	width: 90%;
+	min-width: 80px;
+	height: 80px;
+	padding: 25px 3%;
+	margin: 10px 2%;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background-color: #F9AD05;
+	text-decoration: none;
+	font-size: 1.25em;
+	font-family: 'Lato', Arial, sans-serif;
+
+}
+
 .barra_01 {
 	border-bottom: 1px solid #eee;
 }
@@ -152,7 +169,7 @@ a.button_nav {
 	float: left;
 	cursor:pointer;
 	margin-right: 10px;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #eee;
 	background: url(../resources/images/general/menu.png) no-repeat center;
 	background-size: 26px;
 	z-index: 9999;
@@ -190,6 +207,17 @@ a.button_nav {
 .article_01 img {
 	display: block;
 	margin: 5px auto;
+}
+
+img.siguiente {
+	display: inline;
+	vertical-align: middle;
+    margin-left: 5px;
+}
+img.anterior {
+	display: inline;
+	vertical-align: middle;
+    margin-right: 5px;
 }
 
 .image_news {
