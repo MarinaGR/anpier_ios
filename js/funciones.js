@@ -740,7 +740,6 @@ function start_user_session(id_form) {
 							if(respuesta.Premium==false && respuesta.PremiumPlus==false)
 								setLocalStorage("premium", FLAG_NORMAL);
 							
-							alert("entrando en get_user_data");
 							get_user_data(mail, respuesta.Token);							
 							//window.location.href='menu.html';
 							
@@ -772,9 +771,7 @@ function start_user_session(id_form) {
 
 
 function get_user_data(mail, api_key) {
-				
-	alert("1.-dentro en get_user_data");
-	
+					
 	$.ajax({
 		  url: api_leco+"inicio",
 		  headers: {
@@ -785,11 +782,10 @@ function get_user_data(mail, api_key) {
 		  dataType: 'json',
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
-		  
-						alert("2.-dentro en get_user_data");
-						
+		  						
 						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
-						var anuncio_demo=respuesta2.Anuncio;
+						alert(JSON.stringify(respuesta2.Anuncio));
+						var anuncio_demo=JSON.parse(respuesta2.Anuncio);
 						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
 						
 						//setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
