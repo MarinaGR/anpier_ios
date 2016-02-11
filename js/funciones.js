@@ -786,9 +786,13 @@ function get_user_data(mail, api_key) {
 						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
 						alert(respuesta2.pieInstalaciones);
 						
-						var anuncio_demo=JSON.parse(respuesta2.Anuncio);
-						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
-						alert(respuesta2.Anuncio);
+						alert("muestra_anuncio_demo: "+respuesta2.Anuncio.mostrar);
+						
+						var boton_demo=respuesta2.botonDemo; 
+						var muestra_boton_demo=boton_demo.mostrar;
+						setSessionStorage("muestra_boton_demo", muestra_boton_demo);
+						var txt_boton_demo=boton_demo.texto;
+						setSessionStorage("txt_boton_demo", txt_boton_demo);
 						
 						//setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
