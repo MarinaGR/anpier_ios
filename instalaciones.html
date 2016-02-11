@@ -25,6 +25,8 @@
 			
 			document.addEventListener("deviceready", function()   {
 			
+				ajax_recover_leco("instalacion", "", "contenido", "", false);	
+				
 				if(getSessionStorage("muestra_anuncio_demo")==true)
 				{
 					$("#title_anuncio_demo").html(getSessionStorage("title_anuncio_demo"));
@@ -32,8 +34,6 @@
 					$("#boton_anuncio_demo").html('<a class="vermas" href="#" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\')">'+getSessionStorage("txt_boton_anuncio")+'</a>');
 					$("#pie_instalaciones").html(getSessionStorage("pie_instalaciones"));
 				}
-				
-				ajax_recover_leco("instalacion", "", "contenido", "", false);	
 				
 			}, false);
 			
