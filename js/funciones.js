@@ -784,12 +784,20 @@ function get_user_data(mail, api_key) {
 		  success: function exito2(respuesta2) {
 		  
 						setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
+						var anuncio_demo=respuesta2.Anuncio;
+						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
+						
 						setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
 						var pie_instalaciones=getSessionStorage("pie_instalaciones"); 
 						
+						
+						alert("title_anuncio_demo: "+anuncio_demo.titulo);
+						alert("body_anuncio_demo: "+anuncio_demo.cuerpo);
+						alert("pie_instalaciones: "+respuesta2.pieInstalaciones);
+						
 						//var anuncio_demo=JSON.parse(getSessionStorage("anuncio_demo")); 
-						var anuncio_demo=respuesta2.Anuncio;
+						/*var anuncio_demo=respuesta2.Anuncio;
 						var muestra_anuncio_demo=anuncio_demo.mostrar;
 						setSessionStorage("muestra_anuncio_demo", muestra_anuncio_demo);
 						var title_anuncio_demo=anuncio_demo.titulo;
@@ -805,7 +813,7 @@ function get_user_data(mail, api_key) {
 						var muestra_boton_demo=boton_demo.mostrar;
 						setSessionStorage("muestra_boton_demo", muestra_boton_demo);
 						var txt_boton_demo=boton_demo.texto;
-						setSessionStorage("txt_boton_demo", txt_boton_demo);
+						setSessionStorage("txt_boton_demo", txt_boton_demo);*/
 
 						if(respuesta2.Premium==true)
 							setLocalStorage("premium", FLAG_PREMIUM);
@@ -815,10 +823,6 @@ function get_user_data(mail, api_key) {
 							setLocalStorage("premium", FLAG_NORMAL);
 							
 						alert("premium: "+getLocalStorage("premium"));
-						alert("muestra_anuncio_demo: "+muestra_anuncio_demo);
-						alert("title_anuncio_demo: "+title_anuncio_demo);
-						alert("body_anuncio_demo: "+getSessionStorage("body_anuncio_demo"));
-						alert("pie_instalaciones: "+getSessionStorage("pie_instalaciones"));
 						
 						window.location.href='menu.html';
 						
