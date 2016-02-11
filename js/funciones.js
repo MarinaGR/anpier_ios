@@ -1013,10 +1013,10 @@ function ajax_recover_data(operation, values, container, isLocal) {
 					});
 					
 					if(data.startPrev!=null)
-						cadena+="<a class='verpagina' href='noticias.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+						cadena+="<a class='verpagina' href='noticias.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' class='anterior' />Anterior</a>";
 					
 					if(data.startNext!=null)
-						cadena+="<a class='verpagina' href='noticias.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+						cadena+="<a class='verpagina' href='noticias.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' class='siguiente' /></a>";
 					
 					$("#"+container).html(cadena);
 									
@@ -1298,10 +1298,10 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						});
 						
 						if(data.startPrev!=null)
-							cadena+="<a class='verpagina' href='revista.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+							cadena+="<a class='verpagina' href='revista.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' class='anterior' />Anterior</a>";
 						
 						if(data.startNext!=null)
-							cadena+="<a class='verpagina' href='revista.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+							cadena+="<a class='verpagina' href='revista.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' class='siguiente' /></a>";
 					
 					}
 					
@@ -1437,10 +1437,10 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						cadena+="<div class='clear_02'> </div>";
 						
 						if(data.startPrev!=null)
-							cadena+="<a class='verpagina' href='contenidos.html?tipo=otros_contenidos&start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+							cadena+="<a class='verpagina' href='contenidos.html?tipo=otros_contenidos&start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' class='anterior' />Anterior</a>";
 						
 						if(data.startNext!=null)
-							cadena+="<a class='verpagina' href='contenidos.html?tipo=otros_contenidos&start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+							cadena+="<a class='verpagina' href='contenidos.html?tipo=otros_contenidos&start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' class='siguiente' /></a>";
 					
 					}
 					
