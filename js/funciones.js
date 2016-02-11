@@ -795,11 +795,6 @@ function get_user_data(mail, api_key) {
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
 						var pie_instalaciones=getSessionStorage("pie_instalaciones"); 
 						
-						alert("txt_boton_demo: "+txt_boton_demo);
-						alert("title_anuncio_demo: "+anuncio_demo.titulo);
-						alert("body_anuncio_demo: "+anuncio_demo.cuerpo);
-						alert("pie_instalaciones: "+respuesta2.pieInstalaciones);
-						
 						var muestra_anuncio_demo=anuncio_demo.mostrar;
 						setSessionStorage("muestra_anuncio_demo", muestra_anuncio_demo);
 						var title_anuncio_demo=anuncio_demo.titulo;
