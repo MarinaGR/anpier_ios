@@ -775,7 +775,7 @@ function get_user_data(mail, api_key) {
 	$.ajax({
 		  url: api_leco+"iniciotest",
 		  headers: {
-			'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
+			//'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
 			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
 		  },
 		  type: 'GET',
@@ -783,11 +783,11 @@ function get_user_data(mail, api_key) {
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
 		  
-						setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
+						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
 						var anuncio_demo=respuesta2.Anuncio;
 						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
 						
-						setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
+						//setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
 						var pie_instalaciones=getSessionStorage("pie_instalaciones"); 
 						
