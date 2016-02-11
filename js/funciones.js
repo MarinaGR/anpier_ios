@@ -773,7 +773,7 @@ function start_user_session(id_form) {
 function get_user_data(mail, api_key) {
 				
 	$.ajax({
-		  url: api_leco+"inicio",
+		  url: api_leco+"iniciotest",
 		  headers: {
 			'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
 			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
@@ -786,9 +786,9 @@ function get_user_data(mail, api_key) {
 						setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
 						setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
-						var pie_instalaciones=getLocalStorage("pie_instalaciones"); 
+						var pie_instalaciones=getSessionStorage("pie_instalaciones"); 
 						
-						//var anuncio_demo=JSON.parse(getLocalStorage("anuncio_demo")); 
+						//var anuncio_demo=JSON.parse(getSessionStorage("anuncio_demo")); 
 						var anuncio_demo=respuesta2.Anuncio;
 						var muestra_anuncio_demo=anuncio_demo.mostrar;
 						setSessionStorage("muestra_anuncio_demo", muestra_anuncio_demo);
@@ -818,7 +818,7 @@ function get_user_data(mail, api_key) {
 						alert("muestra_anuncio_demo: "+muestra_anuncio_demo);
 						alert("title_anuncio_demo: "+title_anuncio_demo);
 						alert("body_anuncio_demo: "+getSessionStorage("body_anuncio_demo"));
-						alert("pie_instalaciones: "+getLocalStorage("pie_instalaciones"));
+						alert("pie_instalaciones: "+getSessionStorage("pie_instalaciones"));
 						
 						window.location.href='menu.html';
 						

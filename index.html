@@ -18,9 +18,10 @@
 		<script src="./cordova.js"></script>
 		<script>
 			var user_session=getLocalStorage("user_session"); 
+			alert(user_session);
 			if(typeof user_session != "undefined" && user_session!=null && user_session!="")	
 			{
-				get_user_data(getLocalStorage("user_session"), getLocalStorage("api-key"));
+				get_user_data(user_session, getLocalStorage("api-key"));
 				//window.location.href='menu.html';
 			}
 		</script>
