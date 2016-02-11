@@ -740,7 +740,8 @@ function start_user_session(id_form) {
 							if(respuesta.Premium==false && respuesta.PremiumPlus==false)
 								setLocalStorage("premium", FLAG_NORMAL);
 							
-							get_user_data(getLocalStorage("user_session"), getLocalStorage("api-key"));							
+							alert("entrando en get_user_data");
+							get_user_data(mail, respuesta.Token);							
 							//window.location.href='menu.html';
 							
 					   },
@@ -772,10 +773,12 @@ function start_user_session(id_form) {
 
 function get_user_data(mail, api_key) {
 				
+	alert("1.-dentro en get_user_data");
+	
 	$.ajax({
-		  url: api_leco+"iniciotest",
+		  url: api_leco+"inicio",
 		  headers: {
-			//'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
+			'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
 			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
 		  },
 		  type: 'GET',
@@ -783,6 +786,8 @@ function get_user_data(mail, api_key) {
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
 		  
+						alert("2.-dentro en get_user_data");
+						
 						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
 						var anuncio_demo=respuesta2.Anuncio;
 						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
