@@ -773,9 +773,9 @@ function start_user_session(id_form) {
 function get_user_data(mail, api_key) {
 					
 	$.ajax({
-		  url: api_leco+"iniciotest",
+		  url: api_leco+"inicio",
 		  headers: {
-			//'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
+			'Authorization': 'Basic ' + utf8_to_b64(mail+":"+api_key),
 			'X-ApiKey':'d2a3771d-f2f3-4fc7-9f9f-8ad7697c81dc'
 		  },
 		  type: 'GET',
@@ -783,13 +783,8 @@ function get_user_data(mail, api_key) {
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
 		  						
-						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
-						alert(respuesta2.pieInstalaciones);
-						
-						$("body").prepend(respuesta2.Anuncio);
-						var anuncio_demo=JSON.parse(respuesta2.Anuncio); 
-						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
-						
+						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.anuncio));
+						var anuncio_demo=respuesta2.anuncio; 
 						var boton_demo=respuesta2.botonDemo; 
 						var muestra_boton_demo=boton_demo.mostrar;
 						setSessionStorage("muestra_boton_demo", muestra_boton_demo);
@@ -805,8 +800,6 @@ function get_user_data(mail, api_key) {
 						alert("body_anuncio_demo: "+anuncio_demo.cuerpo);
 						alert("pie_instalaciones: "+respuesta2.pieInstalaciones);
 						
-						//var anuncio_demo=JSON.parse(getSessionStorage("anuncio_demo")); 
-						/*var anuncio_demo=respuesta2.Anuncio;
 						var muestra_anuncio_demo=anuncio_demo.mostrar;
 						setSessionStorage("muestra_anuncio_demo", muestra_anuncio_demo);
 						var title_anuncio_demo=anuncio_demo.titulo;
@@ -817,12 +810,6 @@ function get_user_data(mail, api_key) {
 						setSessionStorage("txt_boton_anuncio", txt_boton_anuncio);
 						var url_boton_anuncio=anuncio_demo.urlBoton;
 						setSessionStorage("url_boton_anuncio", url_boton_anuncio);
-						
-						var boton_demo=respuesta2.botonDemo; 
-						var muestra_boton_demo=boton_demo.mostrar;
-						setSessionStorage("muestra_boton_demo", muestra_boton_demo);
-						var txt_boton_demo=boton_demo.texto;
-						setSessionStorage("txt_boton_demo", txt_boton_demo);*/
 
 						if(respuesta2.Premium==true)
 							setLocalStorage("premium", FLAG_PREMIUM);
@@ -830,9 +817,7 @@ function get_user_data(mail, api_key) {
 							setLocalStorage("premium", FLAG_PREMIUMPLUS);
 						if(respuesta2.Premium==false && respuesta2.PremiumPlus==false)
 							setLocalStorage("premium", FLAG_NORMAL);
-							
-						alert("premium: "+getLocalStorage("premium"));
-						
+													
 						window.location.href='menu.html';
 						
 				   },
