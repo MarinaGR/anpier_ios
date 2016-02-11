@@ -786,7 +786,7 @@ function get_user_data(mail, api_key) {
 						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.Anuncio));
 						alert(respuesta2.pieInstalaciones);
 						
-						$("body").prepend(JSON.stringify(respuesta2.Anuncio));
+						$("body").prepend(respuesta2.Anuncio);
 						var anuncio_demo=JSON.parse(respuesta2.Anuncio); 
 						alert("muestra_anuncio_demo: "+anuncio_demo.mostrar);
 						
