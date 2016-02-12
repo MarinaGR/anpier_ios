@@ -414,7 +414,7 @@ function onMenuKeyDown()
 				'</a>'+				
 				'<span id="premium_flot"> </span>'+
 				'<script>'+
-				'if((getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) && && getSessionStorage("muestra_boton_demo")=="true") {'+
+				'if((getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) && getSessionStorage("muestra_boton_demo")=="true") {'+
 					'$("#premium_flot").html(\'<a href="instalaciones.html"><div class="button_float_nav">'+
 					'<img src="./resources/images/general/panel_solar.png" alt="instalaciones" width="20" height="20" /> Instalaciones'+
 					'</div></a>\'); }'+
@@ -1149,10 +1149,10 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						});
 						
 						if(data.startPrev!=null)
-							cadena+="<a class='verpagina' href='circulares.html?id="+values+"start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+							cadena+="<a class='verpagina' href='circulares.html?id="+values+"start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' class='anterior'  />Anterior</a>";
 						
 						if(data.startNext!=null)
-							cadena+="<a class='verpagina' href='circulares.html?id="+values+"start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+							cadena+="<a class='verpagina' href='circulares.html?id="+values+"start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' class='siguiente'  /></a>";
 					
 					}
 					
@@ -1223,10 +1223,10 @@ function ajax_recover_data(operation, values, container, isLocal) {
 					});
 					
 					if(data.startPrev!=null)
-						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' class='anterior'  />Anterior</a>";
 					
 					if(data.startNext!=null)
-						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' class='siguiente' /></a>";
 								
 					$("#"+container).html(cadena);
 					
@@ -1371,11 +1371,11 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						});
 						
 						if(data.startPrev!=null)
-							cadena+="<a class='verpagina' href='contenidos.html?tipo=audiovisual&start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+							cadena+="<a class='verpagina' href='contenidos.html?tipo=audiovisual&start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' class='anterior' />Anterior</a>";
 						
 						if(data.startNext!=null)
-							cadena+="<a class='verpagina' href='contenidos.html?tipo=audiovisual&start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
-						}
+							cadena+="<a class='verpagina' href='contenidos.html?tipo=audiovisual&start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' class='siguiente' /></a>";
+					}
 					
 					$("#"+container).html(cadena);
 									
