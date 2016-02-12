@@ -1110,11 +1110,12 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						
 						if(values!="")
 						{
+							var variable="id";
 							var id_tipo_circular="";
 							var direccion=values;
 							var posicion=direccion.indexOf("?");
 							
-							posicion=direccion.indexOf("id",posicion) + variable.length; 
+							posicion=direccion.indexOf(variable,posicion) + variable.length; 
 							
 							if (direccion.charAt(posicion)== "=")
 							{ 
