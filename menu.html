@@ -101,18 +101,24 @@
 				<div id="premium" class="barra_01"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
-				if(getLocalStorage("premium")==FLAG_PREMIUM) 
+				if(getLocalStorage("premium")==FLAG_PREMIUM && getSessionStorage("muestra_boton_demo")=='true')  
 				{
-					$('#premium').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />Instalaciones</div></a>');
+					var texto_boton=getSessionStorage("txt_boton_demo");
+					if(texto_boton=="")
+						texto_boton="Instalaciones";
+					$('#premium').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+texto_boton+'</div></a>');
 				}
 				</script>
 				
 				<div id="premiumplus"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
-				if(getLocalStorage("premium")==FLAG_PREMIUMPLUS) 
+				if(getLocalStorage("premium")==FLAG_PREMIUMPLUS && getSessionStorage("muestra_boton_demo")=='true')  
 				{
-					$('#premiumplus').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />Instalaciones</div></a>');
+					var texto_boton=getSessionStorage("txt_boton_demo");
+					if(texto_boton=="")
+						texto_boton="Instalaciones";
+					$('#premiumplus').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+texto_boton+'</div></a>');
 				}
 				</script>
 				

@@ -1,5 +1,5 @@
 //var api_url='http://anpier.org/api.php';
-var api_url='http://hoopale.com/ANPIER_PRUEBAS/api.php';
+var api_url='http://anpier.org/API/api.php';
 var api_leco='http://anpier.api.lecturacontador.com/api/';
 var extern_url='http://www.anpier.org/';
 var local_url='./resources/json/';
@@ -414,7 +414,7 @@ function onMenuKeyDown()
 				'</a>'+				
 				'<span id="premium_flot"> </span>'+
 				'<script>'+
-				'if(getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) {'+
+				'if((getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) && && getSessionStorage("muestra_boton_demo")=="true") {'+
 					'$("#premium_flot").html(\'<a href="instalaciones.html"><div class="button_float_nav">'+
 					'<img src="./resources/images/general/panel_solar.png" alt="instalaciones" width="20" height="20" /> Instalaciones'+
 					'</div></a>\'); }'+
@@ -1147,6 +1147,13 @@ function ajax_recover_data(operation, values, container, isLocal) {
 							cadena+="<div class='clear_01'> </div>";
 									
 						});
+						
+						if(data.startPrev!=null)
+							cadena+="<a class='verpagina' href='circulares.html?id="+values+"start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+						
+						if(data.startNext!=null)
+							cadena+="<a class='verpagina' href='circulares.html?id="+values+"start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+					
 					}
 					
 					$("#"+container).html(cadena);
@@ -1214,6 +1221,13 @@ function ajax_recover_data(operation, values, container, isLocal) {
 					$.each(data.result, function(i, enlaces) {
 						cadena+='<a class="verpdf" href="'+enlaces.url+'"><img src="./resources/images/general/doc.png" />'+enlaces.name+'</a><br>';
 					});
+					
+					if(data.startPrev!=null)
+						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startPrev+"&limit="+data.limit+"' style='float:left'><img src='./resources/images/general/arrow_left.png' alt='Anterior' width='10' style='vertical-align: bottom;margin-right: 5px;' />Anterior</a>";
+					
+					if(data.startNext!=null)
+						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
+					}
 								
 					$("#"+container).html(cadena);
 					

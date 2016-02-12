@@ -23,7 +23,10 @@
 				
 			 document.addEventListener("deviceready", function() 
 			 {
-				ajax_recover_data("press", "", "contenido", false);
+				var start=get_var_url("start");
+				var limit=get_var_url("limit");
+				
+				ajax_recover_data("press", "start="+start+"&limit="+limit, "contenido", false);
 				
 			 }, false);
 			 

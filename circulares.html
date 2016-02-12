@@ -24,7 +24,11 @@
 			 document.addEventListener("deviceready", function() 
 			 {
 				var id=get_var_url("id");
-				ajax_recover_data("tipos_circulares", id, "contenido", false);
+				
+				var start=get_var_url("start");
+				var limit=get_var_url("limit");
+				
+				ajax_recover_data("tipos_circulares", "id="+id+"&start="+start+"&limit="+limit, "contenido", false);
 			
 			 }, false);
 			 
