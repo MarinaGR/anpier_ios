@@ -1109,11 +1109,28 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						$("#"+container).html(cadena);
 						
 						if(values!="")
-							$('#select_circulares').val(values);
+						{
+							var id_tipo_circular="";
+							var direccion=values;
+							var posicion=direccion.indexOf("?");
+							
+							posicion=direccion.indexOf("id",posicion) + variable.length; 
+							
+							if (direccion.charAt(posicion)== "=")
+							{ 
+								var fin=direccion.indexOf("&",posicion); 
+								if(fin==-1)
+									fin=direccion.length;
+									
+								id_tipo_circular=direccion.substring(posicion+1, fin); 
+							} 
+							
+							$('#select_circulares').val(id_tipo_circular);
+						}
 						
 						$('#select_circulares').on('change',function(){
 							//window.location.href='circulares.html?id='+$("#select_circulares").val();
-							ajax_recover_data("circulares", $("#select_circulares").val(), "contenido2", false);
+							ajax_recover_data("circulares", "id="+$("#select_circulares").val()+"&start=&limit=", "contenido2", false);
 						});
 
 						ajax_recover_data("circulares", values, "contenido2", false);
