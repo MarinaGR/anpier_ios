@@ -32,14 +32,7 @@
 					$("#title_anuncio_demo").html(getSessionStorage("title_anuncio_demo"));
 					$("#body_anuncio_demo").html(getSessionStorage("body_anuncio_demo"));
 					
-					if(device.platform!='android' && device.platform!='Android') 
-					{						
-						$("#boton_anuncio_demo").html('<div class="vermas" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\',  \'_system\', \'location=yes\')">'+getSessionStorage("txt_boton_anuncio")+'</div>');
-					}
-					else
-					{
-						$("#boton_anuncio_demo").html('<div class="vermas" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\',  \'_blank\', \'location=yes\')">'+getSessionStorage("txt_boton_anuncio")+'</div>');
-					}
+					$("#boton_anuncio_demo").html('<div class="vermas" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\',  \'_system\', \'location=yes\')">'+getSessionStorage("txt_boton_anuncio")+'</div>');
 				
 					$("#pie_instalaciones").html(getSessionStorage("pie_instalaciones"));
 				}
