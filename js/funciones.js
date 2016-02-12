@@ -1227,7 +1227,6 @@ function ajax_recover_data(operation, values, container, isLocal) {
 					
 					if(data.startNext!=null)
 						cadena+="<a class='verpagina' href='resumenprensa.html?start="+data.startNext+"&limit="+data.limit+"' style='float:right'>Siguiente<img src='./resources/images/general/arrow_right.png' alt='Siguiente' width='10' style='vertical-align: bottom;margin-left: 5px;' /></a>";
-					}
 								
 					$("#"+container).html(cadena);
 					
