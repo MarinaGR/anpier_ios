@@ -24,7 +24,6 @@
 				window.location.href='index.html';
 			
 			document.addEventListener("deviceready", function()   {
-				$("#anuncio").hide();
 				ajax_recover_leco("instalacion", "", "contenido", "", false);	
 				if(getSessionStorage("muestra_anuncio_demo")=='true')// && getLocalStorage("premium")==FLAG_NORMAL)
 				{
@@ -67,7 +66,7 @@
 				Premium - Instalaciones
 			</div>
 			
-			<div class="section_01" id="anuncio">
+			<div class="section_01" id="anuncio" style="display:none">
 			
 				<h2 id="title_anuncio_demo"></h2>
 				<div id="title_anuncio_demo"></div>

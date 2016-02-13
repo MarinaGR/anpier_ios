@@ -1128,7 +1128,7 @@ function ajax_recover_data(operation, values, container, isLocal) {
 						
 						$('#select_circulares').on('change',function(){
 							//window.location.href='circulares.html?id='+$("#select_circulares").val();
-							ajax_recover_data("circulares", "id="+$("#select_circulares").val()+"&start=&limit=", "contenido2", false);
+							ajax_recover_data("circulares", $("#select_circulares").val()+"&start=&limit=", "contenido2", false);
 						});
 
 						ajax_recover_data("circulares", values, "contenido2", false);
@@ -1444,7 +1444,7 @@ function ajax_recover_data(operation, values, container, isLocal) {
 								
 								if(enlace!=null && enlace!="null" && enlace!="") 
 								{									
-									cadena+="<img onclick='window.open(\'"+url_enlace+"\', \'_system\', \'location=yes\')' src='"+url_imagen+"' alt='Imagen principal' style='width: 320px;display: inline-block;' /></a>";
+									cadena+="<img onclick='window.open(\""+url_enlace+"\", \"_system\", \"location=yes\")' src='"+url_imagen+"' alt='Imagen principal' style='width: 320px;display: inline-block;' /></a>";
 								}
 								else
 								{								
@@ -1455,7 +1455,7 @@ function ajax_recover_data(operation, values, container, isLocal) {
 							else
 							{
 								if(url_enlace!="")
-									cadena+="<a href='#' onclick='window.open(\'"+url_enlace+"\', \'_system\', \'location=yes\')' >"+url_enlace+"</a>";
+									cadena+="<a href='#' onclick='window.open(\""+url_enlace+"\", \"_system\", \"location=yes\")' >"+url_enlace+"</a>";
 							}
 														
 							cadena+="<div class='clear_02'> </div>";
