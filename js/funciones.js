@@ -1130,6 +1130,8 @@ function ajax_recover_data(operation, values, container, isLocal) {
 							//window.location.href='circulares.html?id='+$("#select_circulares").val();
 							ajax_recover_data("circulares", $("#select_circulares").val()+"&start=&limit=", "contenido2", false);
 						});
+						
+						alert(values)
 
 						ajax_recover_data("circulares", values, "contenido2", false);
 					}
