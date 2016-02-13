@@ -4,8 +4,13 @@
 		id          = "com.ziddea.anpier"
 		version     = "1.0.2" >
 		
-		<!-- v1.0.2 Corrección de bugs (ocultar información barra sistema ios, ocultar icono phonegap al inicio) cambiar ubicación iconos barra menú superior -->
-		<!-- Pendiente para esta versión: Paginador en todas las secciones de contenidos, revisar circulares -->
+		<!-- 
+		v1.0.2: Corrección de bugs.
+		· Ocultar splash phonegap al inicio
+		· Ocultar información barra sistema ios
+		· Cambiar ubicación iconos barra menú superior ios
+		· Paginador en todas las secciones de contenidos
+		-->
 
     <name>ANPIER</name>
 

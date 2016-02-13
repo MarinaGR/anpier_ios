@@ -26,9 +26,9 @@ function onBodyLoad()
 {	
     document.addEventListener("deviceready", onDeviceReady, false);
 	
-	var boton_salir=document.getElementById("boton_salir");
-	if(boton_salir!=null)
-		boton_salir.addEventListener("click", onBackKeyDown, false);	
+	var boton_atras=document.getElementById("boton_atras");
+	if(boton_atras!=null)
+		boton_atras.addEventListener("click", onBackKeyDown, false);	
 	
 	var boton_menu=document.getElementById("boton_menu");
 	if(boton_menu!=null)
