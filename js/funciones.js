@@ -783,19 +783,16 @@ function get_user_data(mail, api_key) {
 		  dataType: 'json',
 		  crossDomain: true, 
 		  success: function exito2(respuesta2) {
-		  						
-						//setSessionStorage("anuncio_demo", JSON.stringify(respuesta2.anuncio));
-						var anuncio_demo=respuesta2.anuncio; 
+						
 						var boton_demo=respuesta2.botonDemo; 
 						var muestra_boton_demo=boton_demo.mostrar;
 						setSessionStorage("muestra_boton_demo", muestra_boton_demo);
 						var txt_boton_demo=boton_demo.texto;
 						setSessionStorage("txt_boton_demo", txt_boton_demo);
 						
-						//setSessionStorage("boton_demo", JSON.stringify(respuesta2.botonDemo));
 						setSessionStorage("pie_instalaciones", respuesta2.pieInstalaciones);
-						var pie_instalaciones=getSessionStorage("pie_instalaciones"); 
 						
+						var anuncio_demo=respuesta2.anuncio; 
 						var muestra_anuncio_demo=anuncio_demo.mostrar;
 						setSessionStorage("muestra_anuncio_demo", muestra_anuncio_demo);
 						var title_anuncio_demo=anuncio_demo.titulo;
@@ -818,8 +815,8 @@ function get_user_data(mail, api_key) {
 						
 				   },
 		  error: function fallo2(jqXHR, textStatus, errorThrown) {
-					//OJO: QUITAR ALERT
-					alert("Error init data demo");
+					$("#loading2").hide();
+					$(".section_01").show();
 					return false;
 				 },
 		  async:false,
@@ -1447,7 +1444,7 @@ function ajax_recover_data(operation, values, container, isLocal) {
 								
 								if(enlace!=null && enlace!="null" && enlace!="") 
 								{									
-									cadena+="<a href='"+url_enlace+"'><img src='"+url_imagen+"' alt='Imagen principal' style='width: 320px;display: inline-block;' /></a>";
+									cadena+="<img onclick='window.open(\'"+url_enlace+"\', \'_system\', \'location=yes\')' src='"+url_imagen+"' alt='Imagen principal' style='width: 320px;display: inline-block;' /></a>";
 								}
 								else
 								{								
@@ -1458,7 +1455,7 @@ function ajax_recover_data(operation, values, container, isLocal) {
 							else
 							{
 								if(url_enlace!="")
-									cadena+="<a href='"+url_enlace+"'>"+url_enlace+"</a>";
+									cadena+="<a href='#' onclick='window.open(\'"+url_enlace+"\', \'_system\', \'location=yes\')' >"+url_enlace+"</a>";
 							}
 														
 							cadena+="<div class='clear_02'> </div>";

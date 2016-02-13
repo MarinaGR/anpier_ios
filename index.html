@@ -19,11 +19,15 @@
 		<script>
 			var user_session=getLocalStorage("user_session"); 
 			
-			document.addEventListener("deviceready", function()   {
+			//document.addEventListener("deviceready", function()   {
+			$(document).ready(function() 
+			{			
 				if(typeof user_session != "undefined" && user_session!=null && user_session!="")	
 				{
-					get_user_data(user_session, getLocalStorage("api-key"));
 					//window.location.href='menu.html';
+					$(".section_01").hide();
+					$("#loading2").show();
+					var data_user=get_user_data(user_session, getLocalStorage("api-key"));
 				}
 			});
 		</script>
@@ -56,13 +60,15 @@
 					<div id="loading"> </div>
 				
 				</form>
-				
+
 				<!--
 				<p><a class="" href="reset_passw.html" >Recuperar contraseña</a> <br>
 				<span style="font-size:0.95em">(Sólo usuarios Premium y Premium Plus)</span></p>
 				-->
 
 			</div>	
+			
+			<div id="loading2"> </div>
 			
 		</div>
 		

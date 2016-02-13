@@ -24,10 +24,9 @@
 				window.location.href='index.html';
 			
 			document.addEventListener("deviceready", function()   {
-			
+				$("#anuncio").hide();
 				ajax_recover_leco("instalacion", "", "contenido", "", false);	
-				
-				if(getSessionStorage("muestra_anuncio_demo")=='true')
+				if(getSessionStorage("muestra_anuncio_demo")=='true')// && getLocalStorage("premium")==FLAG_NORMAL)
 				{
 					$("#title_anuncio_demo").html(getSessionStorage("title_anuncio_demo"));
 					$("#body_anuncio_demo").html(getSessionStorage("body_anuncio_demo"));
@@ -35,6 +34,7 @@
 					$("#boton_anuncio_demo").html('<div class="vermas" onclick="window.open(\''+getSessionStorage("url_boton_anuncio")+'\',  \'_system\', \'location=yes\')">'+getSessionStorage("txt_boton_anuncio")+'</div>');
 				
 					$("#pie_instalaciones").html(getSessionStorage("pie_instalaciones"));
+					$("#anuncio").show('fade');
 				}
 				
 			}, false);
@@ -67,7 +67,7 @@
 				Premium - Instalaciones
 			</div>
 			
-			<div class="section_01">
+			<div class="section_01" id="anuncio">
 			
 				<h2 id="title_anuncio_demo"></h2>
 				<div id="title_anuncio_demo"></div>

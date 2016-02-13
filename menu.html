@@ -87,9 +87,6 @@
 				<div id="lite" class="barra_01"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
-				
-				alert("muestra boton: "+getSessionStorage("muestra_boton_demo"));
-				
 				if(getLocalStorage("premium")==FLAG_NORMAL && getSessionStorage("muestra_boton_demo")=='true') 
 				{				
 					$('#lite').append('<a href="instalaciones.html"><div class="button_nav2 premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+getSessionStorage("txt_boton_demo")+'</div></a>');
@@ -101,11 +98,9 @@
 				<div id="premium" class="barra_01"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
-				if(getLocalStorage("premium")==FLAG_PREMIUM && getSessionStorage("muestra_boton_demo")=='true')  
+				if(getLocalStorage("premium")==FLAG_PREMIUM)  
 				{
-					var texto_boton=getSessionStorage("txt_boton_demo");
-					if(texto_boton=="")
-						texto_boton="Instalaciones";
+					var texto_boton="Instalaciones";
 					$('#premium').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+texto_boton+'</div></a>');
 				}
 				</script>
@@ -113,11 +108,9 @@
 				<div id="premiumplus"> </div>
 				<!-- Mostrar o no dependiendo del usuario -->
 				<script>
-				if(getLocalStorage("premium")==FLAG_PREMIUMPLUS && getSessionStorage("muestra_boton_demo")=='true')  
+				if(getLocalStorage("premium")==FLAG_PREMIUMPLUS)  
 				{
-					var texto_boton=getSessionStorage("txt_boton_demo");
-					if(texto_boton=="")
-						texto_boton="Instalaciones";
+					var texto_boton="Instalaciones";
 					$('#premiumplus').html('<a href="instalaciones.html"><div class="button_nav premium"><img src="./resources/images/general/instalaciones_menu.png" alt="instalaciones" width="50" /><br />'+texto_boton+'</div></a>');
 				}
 				</script>
