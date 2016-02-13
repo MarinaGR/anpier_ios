@@ -62,7 +62,7 @@ iframe {
 }
 .header_01 img {
 	width: 40px;
-	vertical-align:top;
+	vertical-align:top !important;
 }
 
 #menu_principal a {

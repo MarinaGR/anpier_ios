@@ -25,7 +25,7 @@
 			
 			document.addEventListener("deviceready", function()   {
 				ajax_recover_leco("instalacion", "", "contenido", "", false);	
-				if(getSessionStorage("muestra_anuncio_demo")=='true')// && getLocalStorage("premium")==FLAG_NORMAL)
+				if(getSessionStorage("muestra_anuncio_demo")=='true' && getLocalStorage("premium")==FLAG_NORMAL)
 				{
 					$("#title_anuncio_demo").html(getSessionStorage("title_anuncio_demo"));
 					$("#body_anuncio_demo").html(getSessionStorage("body_anuncio_demo"));
