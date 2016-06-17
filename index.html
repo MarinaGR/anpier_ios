@@ -17,19 +17,7 @@
 		<script src="./js/funciones.js"></script>
 		<script src="./cordova.js"></script>
 		<script>
-			var user_session=getLocalStorage("user_session"); 
-			
-			//document.addEventListener("deviceready", function()   {
-			$(document).ready(function() 
-			{			
-				if(typeof user_session != "undefined" && user_session!=null && user_session!="")	
-				{
-					//window.location.href='menu.html';
-					$(".section_01").hide();
-					$("#loading2").show();
-					var data_user=get_user_data(user_session, getLocalStorage("api-key"));
-				}
-			});
+			window.location.href='menu.html';
 		</script>
 		
 	</head>
@@ -44,31 +32,13 @@
 			</div>
 			
 			<div class="section_01">
-				
-				<h2><img src="./resources/images/general/user.png" alt="anpier" width="40" style="vertical-align: baseline" /> <br>Introduzca sus claves de acceso.</h2>
-				
-				<div class="clear_02"> </div>
-				
-				<form action="" method="post" id="form_acceso">
-
-					<div class="label_01">Usuario</div>
-					<input class="input_01" id="user" name="user" type="email" />
-					<div class="label_01">Contraseña</div>
-					<input class="input_01" id="passw" name="passw" type="password" />
-					<input class="button_01" name="entrar" type="button" value="ENTRAR" onclick="start_user_session('form_acceso');" />
-					
-					<div id="loading"> </div>
-				
-				</form>
-
-				<!--
-				<p><a class="" href="reset_passw.html" >Recuperar contraseña</a> <br>
-				<span style="font-size:0.95em">(Sólo usuarios Premium y Premium Plus)</span></p>
-				-->
+			
+				<div id="contenido" class="article_01">
+					<p style="text-align: center"><img src="./resources/images/general/loading.gif"></p>
+				</div>
+				<div class="clear_03"> </div>
 
 			</div>	
-			
-			<div id="loading2"> </div>
 			
 		</div>
 		

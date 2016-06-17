@@ -412,23 +412,24 @@ function onMenuKeyDown()
 						'<img src="./resources/images/general/consultas.png" alt="consultas" width="20" /> Consultas'+
 					'</div>'+
 				'</a>'+				
-				'<span id="premium_flot"> </span>'+
-				'<script>'+
-				'if((getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) && getSessionStorage("muestra_boton_demo")=="true") {'+
-					'$("#premium_flot").html(\'<a href="instalaciones.html"><div class="button_float_nav">'+
-					'<img src="./resources/images/general/panel_solar.png" alt="instalaciones" width="20" height="20" /> Instalaciones'+
-					'</div></a>\'); }'+
-				'</script>'+				
+				//'<span id="premium_flot"> </span>'+
+				//'<script>'+
+				//'if((getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) && //getSessionStorage("muestra_boton_demo")=="true") {'+
+				//	'$("#premium_flot").html(\'<a href="instalaciones.html"><div class="button_float_nav">'+
+				//	'<img src="./resources/images/general/panel_solar.png" alt="instalaciones" width="20" height="20" /> Instalaciones'+
+				//	'</div></a>\'); }'+
+				//'</script>'+				
 				'<a href="ajustes.html">'+
 					'<div class="button_float_nav">'+
 						'<img src="./resources/images/general/conf.png" alt="ajustes" width="20" /> Ajustes'+
 					'</div>'+
 				'</a>'+
-				'<a href="#" onclick="close_session();">'+
-					'<div class="button_float_nav">'+
-						'<img src="./resources/images/general/llave.png" alt="salir" width="20" /> Cerrar sesi&oacute;n'+
-					'</div>'+
-				'</a>');
+				//'<a href="#" onclick="close_session();">'+
+				//	'<div class="button_float_nav">'+
+				//		'<img src="./resources/images/general/llave.png" alt="salir" width="20" /> Cerrar sesi&oacute;n'+
+				//	'</div>'+
+				//'</a>'+
+				'');
 				
 	$('#menu_flotante').toggle('drop'); 
 	$('#cortina').toggle();

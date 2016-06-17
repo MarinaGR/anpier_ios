@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap   = "http://phonegap.com/ns/1.0"
 		id          = "com.ziddea.anpier"
-		version     = "1.0.3" >
+		version     = "1.0.4" >
 		
 		<!-- 
 		v1.0.2: Corrección de bugs.
@@ -10,7 +10,16 @@
 		· Ocultar información barra sistema ios
 		· Cambiar ubicación iconos barra menú superior ios
 		· Paginador en todas las secciones de contenidos
+		
+		v1.0.3: 
+		· Ocultar dos cuadros (resumen de prensa y boletines audiovisuales) de forma temporal
+		
+		v1.0.4: Ocultar premium y relacionado
+		· Quitar el login en el acceso a la app
+		· Ocultar acceso a las instalaciones
+		· En los ajustes quitar usuario y contraseña
 		-->
+
 
     <name>ANPIER</name>
 

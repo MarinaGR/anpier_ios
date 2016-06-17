@@ -17,9 +17,9 @@
 		<script src="./cordova.js"></script>
 		<script src="./plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js"></script>
 		<script>
-			var user_session=getLocalStorage("user_session"); 
+			/*var user_session=getLocalStorage("user_session"); 
 			if(typeof user_session == "undefined" || user_session==null || user_session=="")	
-				window.location.href='index.html';			
+				window.location.href='index.html';	*/		
 		</script>
 		
 	</head>
@@ -85,7 +85,7 @@
 				<div class="clear_01"> </div>
 				
 				<div id="lite" class="barra_01"> </div>
-				<!-- Mostrar o no dependiendo del usuario -->
+				<!-- Mostrar o no dependiendo del usuario 
 				<script>
 				if(getLocalStorage("premium")==FLAG_NORMAL && getSessionStorage("muestra_boton_demo")=='true') 
 				{				
@@ -96,7 +96,7 @@
 				</script>
 				
 				<div id="premium" class="barra_01"> </div>
-				<!-- Mostrar o no dependiendo del usuario -->
+
 				<script>
 				if(getLocalStorage("premium")==FLAG_PREMIUM)  
 				{
@@ -106,7 +106,7 @@
 				</script>
 				
 				<div id="premiumplus"> </div>
-				<!-- Mostrar o no dependiendo del usuario -->
+
 				<script>
 				if(getLocalStorage("premium")==FLAG_PREMIUMPLUS)  
 				{
@@ -116,14 +116,14 @@
 				</script>
 				
 				<span id="ajustes"> </span>
-				<!-- Mostrar o no dependiendo del usuario -->
+
 				<script>
 				if(getLocalStorage("premium")==FLAG_PREMIUM || getLocalStorage("premium")==FLAG_PREMIUMPLUS) 
 				{
 					$('#ajustes').html('<a href="ajustes.html"><div class="button_nav premium"><img src="./resources/images/general/conf_menu.png" alt="ajustes" width="50" /><br />Ajustes</div></a>');
 				}
 				</script>
-				
+				-->
 				<div class="clear_01"> </div>
 
 			</div>	
